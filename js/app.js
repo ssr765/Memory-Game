@@ -400,7 +400,7 @@ ${muestraTiempo(tiempoSeleccionado)} y he conseguido una puntuación de ${puntua
 puntuación de ${puntuacion['puntos']} en un tiempo de ${muestraTiempo(tiempoSeleccionado)}.`;
     }
     // %0A és un carácter codificado en HTML que representa un salto de linea.
-    tuit += '%0A%0AJuega tú también en https://ssr765.github.io/memory';
+    tuit += '%0A%0AJuega tú también en https://ssr765.github.io/Memory-Game/';
 
     botonX.href = tuit;
 }
