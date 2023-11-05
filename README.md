@@ -1,4 +1,4 @@
-<p align="center"><a href="https://ssr765.github.io/Memory-Game/" target="_blank"><img src="https://ssr765.github.io/Memory-Game/assets/simplelogo.png"></a></p>
+<p align="center"><a href="https://ssr765.github.io/Memory-Game/" target="_blank"><img src="https://ssr765.github.io/Memory-Game/assets/simplelogo.png" width="200"></a></p>
 <p align="center"><img src="https://img.shields.io/github/license/ssr765/Memory-Game"></p>
 
 # Memory game
