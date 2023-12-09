@@ -26,115 +26,117 @@
 </head>
 <body>
     <div class="latente oculto"></div>
-    <div class="tablero interfaz-base">
-        <table>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <div class="pantalla-pierde oculto">
-            <div class="interior">
-                <h1>Fin del juego</h1>
-                <h2>Se ha acabado el tiempo</h2>
+    <div class="container">
+        <div class="tablero interfaz-base">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="pantalla-pierde oculto">
+                <div class="interior">
+                    <h1>Fin del juego</h1>
+                    <h2>Se ha acabado el tiempo</h2>
+                </div>
+            </div>
+            <div class="pantalla-detenido oculto"></div>
+            <div class="pantalla-gana oculto">
+                <div class="interior">
+                    <h1>Felicidades!</h1>
+                    <h2>Has completado el juego</h2>
+                </div>
             </div>
         </div>
-        <div class="pantalla-detenido oculto"></div>
-        <div class="pantalla-gana oculto">
-            <div class="interior">
-                <h1>Felicidades!</h1>
-                <h2>Has completado el juego</h2>
+        <div class="menu interfaz-base">
+            <button class="boton-inicio">Iniciar el juego</button>
+            <hr>
+            <p>Temática de las imágenes</p>
+            <select class="select-tematica" onchange="cambioSelect()">
+                <option value="maur">Mapaches</option>
+                <option id="custom-option" value="custom">Personalizado...</option>
+            </select>
+            <hr>
+            <p>Tiempo de juego</p>
+            <select class="select-tiempo">
+                <option value="3000">30s</option>
+                <option value="6000">1m</option>
+                <option value="12000">2m</option>
+                <option value="18000">3m</option>
+                <option value="24000">4m</option>
+                <option value="30000">5m</option>
+                <option value="36000">6m</option>
+                <option value="42000">7m</option>
+                <option value="48000">8m</option>
+                <option value="56000">9m</option>
+                <option value="60000">10m</option>
+            </select>
+            <hr>
+            <div class="custom oculto">
+                <p id="custom-titulo">
+                    <span>Tema personalizado</span>
+                    <label class="boton-fake" for="carga"><i class="fa-regular fa-file"></i></label>
+                    <input style="display: none;" type="file" id="carga">
+                    <label class="boton-fake" id="descarga"><i class="fa-regular fa-floppy-disk"></i></label>
+                </p>
+                <input type="text" id="custom-1" placeholder="Link a la imagen 1">
+                <input type="text" id="custom-2" placeholder="Link a la imagen 2">
+                <input type="text" id="custom-3" placeholder="Link a la imagen 3">
+                <input type="text" id="custom-4" placeholder="Link a la imagen 4">
+                <input type="text" id="custom-5" placeholder="Link a la imagen 5">
+                <input type="text" id="custom-6" placeholder="Link a la imagen 6">
+                <input type="text" id="custom-7" placeholder="Link a la imagen 7">
+                <input type="text" id="custom-8" placeholder="Link a la imagen 8">
+                <input type="text" id="custom-9" placeholder="Link a la imagen 9">
+                <input type="text" id="custom-10" placeholder="Link a la imagen 10">
+                <input type="text" id="custom-11" placeholder="Link a la imagen 11">
+                <input type="text" id="custom-12" placeholder="Link a la imagen 12">
+                <input type="text" id="custom-fondo" placeholder="Link a la imagen de fondo (Opcional)">
             </div>
+            <div class="estadisticas oculto">
+                <span class="parejas">Parejas: 0/12</span>
+                <br>
+                <span class="puntuacion">Puntuación: 0</span>
+                <a target="_blank" class="x-enlace oculto" href="#">
+                    <button class="x-boton"><i class="fa-brands fa-x-twitter"></i></button>
+                </a>
+            </div>
+            <div class="temporizador">
+                <i class="fa-regular fa-clock"></i>
+                <span class="contador">00:00</span>
+            </div>
+            <button class="pantalla-completa">
+                <i class="fa-solid fa-expand"></i>
+            </button>
         </div>
-    </div>
-    <div class="menu interfaz-base">
-        <button class="boton-inicio">Iniciar el juego</button>
-        <hr>
-        <p>Temática de las imágenes</p>
-        <select class="select-tematica" onchange="cambioSelect()">
-            <option value="maur">Mapaches</option>
-            <option id="custom-option" value="custom">Personalizado...</option>
-        </select>
-        <hr>
-        <p>Tiempo de juego</p>
-        <select class="select-tiempo">
-            <option value="3000">30s</option>
-            <option value="6000">1m</option>
-            <option value="12000">2m</option>
-            <option value="18000">3m</option>
-            <option value="24000">4m</option>
-            <option value="30000">5m</option>
-            <option value="36000">6m</option>
-            <option value="42000">7m</option>
-            <option value="48000">8m</option>
-            <option value="56000">9m</option>
-            <option value="60000">10m</option>
-        </select>
-        <hr>
-        <div class="custom oculto">
-            <p id="custom-titulo">
-                <span>Tema personalizado</span>
-                <label class="boton-fake" for="carga"><i class="fa-regular fa-file"></i></label>
-                <input style="display: none;" type="file" id="carga">
-                <label class="boton-fake" id="descarga"><i class="fa-regular fa-floppy-disk"></i></label>
-            </p>
-            <input type="text" id="custom-1" placeholder="Link a la imagen 1">
-            <input type="text" id="custom-2" placeholder="Link a la imagen 2">
-            <input type="text" id="custom-3" placeholder="Link a la imagen 3">
-            <input type="text" id="custom-4" placeholder="Link a la imagen 4">
-            <input type="text" id="custom-5" placeholder="Link a la imagen 5">
-            <input type="text" id="custom-6" placeholder="Link a la imagen 6">
-            <input type="text" id="custom-7" placeholder="Link a la imagen 7">
-            <input type="text" id="custom-8" placeholder="Link a la imagen 8">
-            <input type="text" id="custom-9" placeholder="Link a la imagen 9">
-            <input type="text" id="custom-10" placeholder="Link a la imagen 10">
-            <input type="text" id="custom-11" placeholder="Link a la imagen 11">
-            <input type="text" id="custom-12" placeholder="Link a la imagen 12">
-            <input type="text" id="custom-fondo" placeholder="Link a la imagen de fondo (Opcional)">
-        </div>
-        <div class="estadisticas oculto">
-            <span class="parejas">Parejas: 0/12</span>
-            <br>
-            <span class="puntuacion">Puntuación: 0</span>
-            <a target="_blank" class="x-enlace oculto" href="#">
-                <button class="x-boton"><i class="fa-brands fa-x-twitter"></i></button>
-            </a>
-        </div>
-        <div class="temporizador">
-            <i class="fa-regular fa-clock"></i>
-            <span class="contador">00:00</span>
-        </div>
-        <button class="pantalla-completa">
-            <i class="fa-solid fa-expand"></i>
-        </button>
     </div>
     <!-- <div class="puntos-ganados">
         +30000

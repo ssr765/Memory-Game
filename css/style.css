@@ -21,19 +21,25 @@
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 
-    font-family: "Montserrat";
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
     background-image: url('../img/maur/fondo.webp');
     background-size: cover;
     background-position: center;
     transition: background-image 1s;
+    min-height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    width: min-content;
+    margin: auto;
 }
 
 button {
