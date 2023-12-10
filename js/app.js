@@ -1,7 +1,7 @@
 const botonInicio = document.querySelector('.boton-inicio');
 const tablero = document.querySelector('.tablero');
 const menu = document.querySelector('.menu');
-const tematica = document.querySelector('.select-tematica');
+const selectTematica = document.querySelector('.select-tematica');
 const customOpcion = document.querySelector('#custom-option');
 const casillas = document.querySelectorAll('td');
 const tiempo = document.querySelector('.select-tiempo');
@@ -45,6 +45,8 @@ let puntuacion = {
     'puntos': 0,
     'aciertos': 0,
 }
+let tematica = selectTematica.value;
+let mes = new Date().getMonth();
 
 // Variables para controlar el estado de la partida.
 let jugando = false;
@@ -120,16 +122,24 @@ const inputError = (input) => {
     input.style.color = '#fff';
 }
 
+// Intervalo para cambiar la temática en caso de que cambie de una manera alternativa al select.
+setInterval(() => {
+    if (tematica != selectTematica.value) {
+        tematica = selectTematica.value;
+        cambioSelect();
+    }
+}, 100);
+
 /**
  * Cambia el fondo según el contenido del select.
  */
 function cambioSelect() {
     // Si no es un tema personalizado, muestra el fondo y las fichas del tema seleccionado.
-    if (tematica.value !== 'custom') {
+    if (selectTematica.value !== 'custom') {
         // Ocultar el menu del tema personalizado.
         botonInicio.disabled = false;
         ocultar(customMenu);
-        document.body.style.backgroundImage = `url(img/${tematica.value}/fondo.webp)`;
+        document.body.style.backgroundImage = `url(img/${selectTematica.value}/fondo.webp)`;
         restablecerJuego();
         creaFichas(true);
         
@@ -164,7 +174,7 @@ function generaListaImagenes(ordenada = false, custom = false) {
         // Añadir las imágenes.
         for (let j = 1; j <= 2; j++) {
             for (let i = 1; i < 13; i++) {
-                listaImagenes.push(`img/${tematica.value}/${i}.webp`)
+                listaImagenes.push(`img/${selectTematica.value}/${i}.webp`)
             }
         }
     } else {
@@ -191,8 +201,8 @@ function generaListaImagenes(ordenada = false, custom = false) {
  */
 function habilitarControles() {
     tiempo.disabled = false;
-    tematica.disabled = false;
-    if (tematica.value === 'custom') {
+    selectTematica.disabled = false;
+    if (selectTematica.value === 'custom') {
         mostrar(customMenu);
     }
 }
@@ -202,7 +212,7 @@ function habilitarControles() {
  */
 function deshabilitarControles() {
     tiempo.disabled = true;
-    tematica.disabled = true;
+    selectTematica.disabled = true;
     ocultar(customMenu);
 }
 
@@ -367,7 +377,7 @@ function inicioJuego() {
     nombreBotonInicio('Parar el juego');
     jugando = true;
     mostrar(estadisticas);
-    creaFichas(false, tematica.value === 'custom');
+    creaFichas(false, selectTematica.value === 'custom');
     creaTemporizador();
     deshabilitarControles();
     actualizarMarcador();  // Actualizarlo para que muestre cero.
@@ -485,7 +495,7 @@ function prepararJuego() {
     final = false;
     habilitarControles();
     restablecerJuego();
-    creaFichas(true, tematica.value === 'custom');
+    creaFichas(true, selectTematica.value === 'custom');
     ocultar(estadisticas);
     ocultar(botonX);
 }
@@ -711,3 +721,10 @@ botonDescargaCustom.addEventListener('click', () => {
 })
 
 creaFichas(true);
+
+// Poner la temática de navidad cuando sea navidad.
+if (mes == 11) {    // Diciembre.
+    selectTematica.value = 'xmas';
+    // Forzar el cambio.
+    cambioSelect();
+}
